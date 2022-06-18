@@ -1,8 +1,6 @@
 import ImageCarousel from '../HelperComponents/ImageCarousel';
 
-
 const ProductCard = (props) => { 
-
 console.log(props);
 const addToCart = () => {
 // dispatch add cart item event to store 
@@ -22,39 +20,11 @@ return (
     <label>`Category: ${props.product.category}`</label>
    
     <label>`Rating: ${props.product.rating}`</label>
-    {props.existsInCart ? <Button onClick={addToCart}>Add to Cart</Button> 
-    : <Button onClick={removeFromCart}>Remove from cart</Button>}
+    {!props.existsInCart ? <button onClick={addToCart}>Add to Cart</button> 
+    : <button onClick={removeFromCart}>Remove from cart</button>}
 
 </div>
 </>)
 }
 
 export default ProductCard;
-
-/*
-{
-    "products": [
-      {
-        "id": 1,
-        "title": "iPhone 9",
-        "description": "An apple mobile which is nothing like apple",
-        "price": 549,
-        "discountPercentage": 12.96,
-        "rating": 4.69,
-        "stock": 94,
-        "brand": "Apple",
-        "category": "smartphones",
-        "thumbnail": "...",
-        "images": ["...", "...", "..."]
-      },
-      {...},
-      {...},
-      {...}
-      // 30 items
-    ],
-  
-    "total": 100,
-    "skip": 0,
-    "limit": 30
-  } */
-     
