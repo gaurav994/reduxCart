@@ -1,4 +1,4 @@
 # reduxCart
 
-Master Branch : Code till 19 July Screen Sharing . 
+Master Branch : Code till 18 July Screen Sharing . 
 Feature/CompleteCart : Coded after Screen Sharing .
