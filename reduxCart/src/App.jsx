@@ -24,7 +24,7 @@ function App() {
   return (
       <BrowserRouter>
       <Routes>
-        <Route path='/'  element={<ProductListing/>} />
+        <Route path='/'      element={<ProductListing/>} />
         <Route path='/cart'  element={<Cart/>} />
       </Routes>
       </BrowserRouter>

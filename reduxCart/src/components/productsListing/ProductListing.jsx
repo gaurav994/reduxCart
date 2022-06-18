@@ -16,17 +16,18 @@ const ProductListing = () => {
     }
 
 return (
-<>
 <div>
-<div> </div>
+<div> <h1>this is product listing page</h1></div>
 <div>
-{products.length > 0 && products.map((product)=> {
-    <ProductCard   product={product}  existsInCart={returnExistsInCart(product.id)}   />
+{!products.products.length > 0 ? <h1>Loading Products</h1> :  products.products.map((i)=> {
+    <>
+    <h1>{i.title}</h1>
+    <ProductCard   product={i}  existsInCart={returnExistsInCart(i.id)}   />
+    </>
 })}
 </div>
 </div>
-
-</>)
+)
 }
 
 export default ProductListing;

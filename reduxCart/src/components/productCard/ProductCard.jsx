@@ -3,7 +3,7 @@ import ImageCarousel from '../HelperComponents/ImageCarousel';
 
 const ProductCard = (props) => { 
 
-
+console.log(props);
 const addToCart = () => {
 // dispatch add cart item event to store 
 }
