@@ -27,17 +27,6 @@ export const FETCH_ON_CATEGORY = createAsyncThunk(
     }
   )
 
-  export const FETCH_ALL_CATEGORY = createAsyncThunk(
-    'products/fetchOnName',
-    async () => {
-        try {
-            const { data } = await api.fetchCategory();
-            return data ;
-        } catch(error) {
-            console.log(error.message);
-        }
-    }
-  )
 
 export const FETCH_ON_NAME = createAsyncThunk(
   'products/fetchOnName',
@@ -50,6 +39,19 @@ export const FETCH_ON_NAME = createAsyncThunk(
       }
   }
 )
+
+
+export const FETCH_ALL_CATEGORY = createAsyncThunk(
+    'products/fetchAllCategory',
+    async () => {
+        try {
+            const { data } = await api.fetchCategory();
+            return data ;
+        } catch(error) {
+            console.log(error.message);
+        }
+    }
+  )
 
 export const productSlice = createSlice ({
     name : "products",
@@ -68,12 +70,7 @@ export const productSlice = createSlice ({
         const stateUpdate = {products: action.payload.products , category : state.category};
         return stateUpdate;
       })
-      
-      builder.addCase(FETCH_ON_CATEGORY.fulfilled, (state, action) => {        
-        const stateUpdate = {products: action.payload.products , category : state.category};
-        return stateUpdate;
-      })
-      
+            
       builder.addCase(FETCH_ON_NAME.fulfilled, (state, action) => {        
         const stateUpdate = {products: action.payload.products , category : state.category};
         return stateUpdate;

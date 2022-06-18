@@ -1,6 +1,5 @@
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "@reduxjs/toolkit";
+import { useSelector , useDispatch} from "react-redux";
 
 import ProductCard from "../productCard/productCard";
 
@@ -18,17 +17,21 @@ const ProductListing = () => {
         // dispatch fetch cart list event to store
         disptach(FETCH_USER_CART(5));
     })
-
+    
     const returnExistsInCart = (productId) => {
-        cartList.find((product) =>  product.cartItems)
+      return  cartList.cartItems.find((product) =>  product.id == productId)? true : false;
     }
 
 return (
 <>
-
-{ products.map((product)=> {
+<div>
+<div> </div>
+<div>
+{products.length > 0 && products.map((product)=> {
     <ProductCard   product={product}  existsInCart={returnExistsInCart(product.id)}   />
 })}
+</div>
+</div>
 
 </>)
 }
