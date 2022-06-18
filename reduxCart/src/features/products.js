@@ -77,7 +77,7 @@ export const productSlice = createSlice ({
       })
       
       builder.addCase(FETCH_ALL_CATEGORY.fulfilled, (state, action) => {        
-        const stateUpdate = {products: state.products , category : action.payload.category};
+        const stateUpdate = {products: state.products , category : action.payload};
         return stateUpdate;
       })
     },

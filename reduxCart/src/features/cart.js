@@ -26,7 +26,7 @@ export const cartSlice = createSlice ({
       // Add reducers for additional action types here, and handle loading state as needed
       builder.addCase(FETCH_USER_CART.fulfilled, (state, action) => {
         // Add user to the state array
-        const stateUpdated = {cartItems : action.payload.carts , ItemCount:  action.payload.total};
+        const stateUpdated = {cartItems : action.payload.carts[0].products , ItemCount:  action.payload.carts[0].totalProducts};
         return stateUpdated;
       })
     },

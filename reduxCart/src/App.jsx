@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import ProductListing from './components/productsListing/ProductListing';
 import Cart from './components/cart/Cart';
-import { FETCH_ALL_PRODUCTS } from './features/products';
+import { FETCH_ALL_PRODUCTS , FETCH_ALL_CATEGORY} from './features/products';
 import { FETCH_USER_CART } from './features/cart';
 
 
@@ -17,6 +17,9 @@ function App() {
       // dispatch fetch product list event to store
       disptach(FETCH_ALL_PRODUCTS());
       
+      // dispatch fetch category list event to store
+      disptach(FETCH_ALL_CATEGORY());
+
       // dispatch fetch cart list event to store
       disptach(FETCH_USER_CART(5));
   }); 
