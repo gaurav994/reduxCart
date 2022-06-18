@@ -5,6 +5,7 @@ const ProductCard = (props) => {
 
 const addToCart = () => {
 // dispatch add cart item event to store 
+
 }
 const removeFromCart = () => {
     // dispatch remove cart item event to store  use props.product.id

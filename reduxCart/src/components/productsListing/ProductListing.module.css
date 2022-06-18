@@ -6,14 +6,16 @@
     flex-direction: column;
     flex-wrap: nowrap;
 }
+
 .searchBarContainer {
-    
+
     height: 7vh;
     display: flex;
     flex-direction: row;
     margin: 2vh;
     padding-left: 10vw;
-    align-items: center;border-radius: 10px;
+    align-items: center;
+    border-radius: 10px;
     background: #E6DADA;
     background: -webkit-linear-gradient(to right, #274046, #E6DADA);
     background: linear-gradient(to right, #274046, #E6DADA);
@@ -25,7 +27,7 @@
     margin-left: 2vw;
     font-weight: 700;
     color: white;
- }
+}
 
 .searchBarContainer input {
     border: none;
@@ -35,9 +37,9 @@
     background: #ECE9E6;
     background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);
     background: linear-gradient(to right, #FFFFFF, #ECE9E6);
- }
+}
 
- .searchBarContainer select {    
+.searchBarContainer select {
     width: 8vw;
     margin-left: 1vw;
     border: none;
@@ -47,14 +49,19 @@
     background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);
     background: linear-gradient(to right, #FFFFFF, #ECE9E6);
     color: black;
- }
+}
 
- .cartCount {    
+.searchBarContainer a {
+    text-decoration: none;
+    cursor: alias;
+}
+
+.cartCount {
     padding: 0.2vw;
     /* float: right; */
     font-weight: 700;
     border: solid 2px darkslategray;
     border-radius: 8px;
-    color:black !important;   
+    color: black !important;
     margin-left: 40vw !important;
- }
+}

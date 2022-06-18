@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import {Link } from 'react-router-dom';
 
 import ProductCard from "../productCard/productCard";
 import styles from './ProductListing.module.css';
@@ -18,8 +19,16 @@ const ProductListing = () => {
         return cartList.cartItems.find((product) => product.id == productId) ? true : false;
     }
 
+    const debounce = (func, timeout = 300) => {
+        let timer;
+        return (...args) => {
+          clearTimeout(timer);
+          timer = setTimeout(() => { func.apply(this, args); }, timeout);
+        };
+      }
+
     const fetchProductsOnUserInput = (event) => {
-        dispatch(FETCH_ON_NAME(event.target.value));
+         dispatch(FETCH_ON_NAME(event.target.value));
     }
 
     const fetchProductOnCategoryInput = (event) => {        
@@ -39,7 +48,7 @@ const ProductListing = () => {
 
                     ))}
                 </select>
-                <label className={styles.cartCount}>Items in cart : {cartList.ItemCount}</label></div>
+                <Link to="/cart"><label className={styles.cartCount}>Items in cart : {cartList.ItemCount}</label></Link></div>
             <div className={styles.productsListContainer}>
                 {!products.products.length > 0 ? <h1>Loading Products</h1> : products.products.map((i) => (
 
