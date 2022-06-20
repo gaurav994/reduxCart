@@ -29,7 +29,7 @@
     display: table-row
 }
 .productCardButtonContainer button {
-    height: 5vh;
+    height: 3vh;
     width: 10vw;
     display: table-row;
     background-color: darkgrey;

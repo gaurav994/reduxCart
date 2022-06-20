@@ -7,10 +7,11 @@ import styles from './ProductListing.module.css';
 import { FETCH_ON_NAME, FETCH_ON_CATEGORY } from '../../features/products';
 import { UPDATE_USER_CART } from '../../features/cart';
 
-const ProductListing = () => {
+const ProductListing = (props) => {
 
-    const products = useSelector((state) => state.products);
-    const cartList = useSelector((state) => state.cart);
+    var products = props.products;
+    var cartList = props.cartList;
+
     const dispatch = useDispatch();
 
 
@@ -72,17 +73,21 @@ const ProductListing = () => {
 
     return (
         <div>
-            <div className={styles.searchBarContainer}>
+            <div className={ styles.searchBarContainer }>
 
-                <input onInput={fetchProductsOnUserInput} placeholder="search"></input>
+                {props.page == 'productList' ? <>
+                <input onInput={ fetchProductsOnUserInput } placeholder="search"></input>
                 <label> Category </label>
-                <select onInput={fetchProductOnCategoryInput} placeholder="">
-                    {!products.category.length > 0 ? <option value="">Loading...</option> : products.category.map((i) => (
+                <select onInput={ fetchProductOnCategoryInput } placeholder="">
+                    { !products.category.length > 0 ? <option value="">Loading...</option> : products.category.map((i) => (
 
                         <option key={i} value={i}>{i}</option>
 
                     ))}
                 </select>
+                </> : 
+               <label> My Cart </label>
+                }               
                 <Link to="/cart"><label className={styles.cartCount}>Items in cart : {cartList.ItemCount}</label></Link></div>
             <div className={styles.productsListContainer}>
                 {!products.products.length > 0 ? <h1>Loading Products</h1> : products.products.map((i) => (

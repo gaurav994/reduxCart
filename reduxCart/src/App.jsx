@@ -3,7 +3,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { Provider , useDispatch } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import ProductListing from './components/productsListing/ProductListing';
+import Home from './components/home/Home';
 import Cart from './components/cart/Cart';
 import { FETCH_ALL_PRODUCTS , FETCH_ALL_CATEGORY} from './features/products';
 import { FETCH_USER_CART } from './features/cart';
@@ -27,7 +27,7 @@ function App() {
   return (
       <BrowserRouter>
       <Routes>
-        <Route path='/'      element={<ProductListing/>} />
+        <Route path='/'      element={<Home/>} />
         <Route path='/cart'  element={<Cart/>} />
       </Routes>
       </BrowserRouter>
