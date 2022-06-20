@@ -1,5 +1,9 @@
 # reduxCart
 
+react and redux used to implement a product listing page with functionality to add/remove products in cart and manage cart. 
+Note: Cart and home page used common Product listing page for code reusability . 
+
+
 Master Branch : Code till 18 July Screen Sharing .
 
 
