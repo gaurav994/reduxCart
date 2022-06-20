@@ -14,8 +14,9 @@ const ProductListing = () => {
     const dispatch = useDispatch();
 
 
-    const returnExistsInCart = (productId) => {
-        return cartList.cartItems.find((product) => product.id == productId) ? true : false;
+    const returnQuantity = (productId) => {
+        let matchingProduct = cartList.cartItems.find((product) => product.id == productId);
+        return matchingProduct ? matchingProduct.quantity : 0;
     }
 
     const debounce = (func, timeout = 300) => {
@@ -86,7 +87,7 @@ const ProductListing = () => {
             <div className={styles.productsListContainer}>
                 {!products.products.length > 0 ? <h1>Loading Products</h1> : products.products.map((i) => (
 
-                    <ProductCard key={i.id} product={i} existsInCart={returnExistsInCart(i.id)} updateCart={updateCart} />
+                    <ProductCard key={i.id} product={i} quantity={returnQuantity(i.id)} updateCart={updateCart} />
 
                 ))}
             </div>

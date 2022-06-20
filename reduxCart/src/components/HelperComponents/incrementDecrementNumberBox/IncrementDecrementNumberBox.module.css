@@ -1,0 +1,16 @@
+.incDecInputContainerDiv {
+
+    display: flex;
+    width: 10vw;
+    justify-content: center;
+    align-content: center;
+
+}
+
+.incDecInputContainerDiv input {
+
+    width: 5vw;
+    border: none;
+    border-bottom: solid dimgrey;
+    border-radius: 10px;
+}

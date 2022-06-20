@@ -1,13 +1,14 @@
-import ImageCarousel from '../HelperComponents/ImageCarousel';
+import ImageCarousel from '../HelperComponents/ImageCarousel/ImageCarousel';
+import IncrementDecrementNumberBox from '../HelperComponents/incrementDecrementNumberBox/IncrementDecrementNumberBox';
 import styles from './ProductCard.module.css';
 
 const ProductCard = (props) => { 
-   const  updateUserCart = () => {
-   
-   }
-   const  deleteFromUserCart = () => {
+
+    const updateQuantity = (updatebyNumber) => {
+        if(updatebyNumber > 0 ) props.updateCart("add",props.product);
+        else props.updateCart("decrement",props.product);
+    }
     
-   }
 
 return (
 <>
@@ -23,8 +24,10 @@ return (
    
     <label>Rating: {props.product.rating}</label>
     
-    {!props.existsInCart ? <button onClick={() =>  props.updateCart("add",props.product)}>Add to Cart</button> 
-    :<button onClick={() => props.updateCart("delete",props.product)}>Remove from cart</button>}
+    {!props.quantity > 0 ? <button onClick={() =>  props.updateCart("add",props.product)}>Add to Cart</button> 
+    : <> <IncrementDecrementNumberBox quantity = {props.quantity} updateQuantity = {updateQuantity}/>
+    <button onClick={() => props.updateCart("delete",props.product)}>Remove from cart</button>
+     </>}
     </div>
 
 </div>
