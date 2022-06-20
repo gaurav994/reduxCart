@@ -14,4 +14,7 @@ export const fetchProductsOnName = (name) => axios.get(`${url}products/search?q=
 // cart 
 export const fetchCartOfUser = (userId) => axios.get(`${url}carts/user/${userId}`);
 
+
+export const UpdateCartOfUser = (userId, body) => axios.put(`${url}carts/${userId}`, body);
+
 //export const fetchCategory = () => axios.get('url'+'products/categories');

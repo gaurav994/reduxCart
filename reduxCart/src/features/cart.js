@@ -1,6 +1,5 @@
 
-
-  import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import * as api from '../api';
 
@@ -9,6 +8,18 @@ export const FETCH_USER_CART = createAsyncThunk(
     async (params) => {
         try {
             const { data } = await api.fetchCartOfUser(params);
+            return data ;
+        } catch(error) {
+            console.log(error.message);
+        }
+    }
+  )
+
+  export const UPDATE_USER_CART = createAsyncThunk(
+    'cart/updateUserCart',
+    async (params) => {
+        try {
+            const { data } = await api.UpdateCartOfUser(params.cartId, params.cartProducts);
             return data ;
         } catch(error) {
             console.log(error.message);
@@ -26,7 +37,12 @@ export const cartSlice = createSlice ({
       // Add reducers for additional action types here, and handle loading state as needed
       builder.addCase(FETCH_USER_CART.fulfilled, (state, action) => {
         // Add user to the state array
-        const stateUpdated = {cartItems : action.payload.carts[0].products , ItemCount:  action.payload.carts[0].totalProducts};
+        const stateUpdated = {cartItems : action.payload.carts[0].products ,cartId: action.payload.carts[0].id, ItemCount:  action.payload.carts[0].totalProducts};
+        return stateUpdated;
+      })
+      builder.addCase(UPDATE_USER_CART.fulfilled, (state, action) => {
+        // Add user to the state array
+        const stateUpdated = {cartItems : action.payload.products , cartId: action.payload.id, ItemCount:  action.payload.totalProducts};
         return stateUpdated;
       })
     },

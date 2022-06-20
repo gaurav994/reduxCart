@@ -2,15 +2,12 @@ import ImageCarousel from '../HelperComponents/ImageCarousel';
 import styles from './ProductCard.module.css';
 
 const ProductCard = (props) => { 
-
-const addToCart = () => {
-// dispatch add cart item event to store 
-
-}
-const removeFromCart = () => {
-    // dispatch remove cart item event to store  use props.product.id
+   const  updateUserCart = () => {
+   
+   }
+   const  deleteFromUserCart = () => {
     
-}
+   }
 
 return (
 <>
@@ -26,8 +23,8 @@ return (
    
     <label>Rating: {props.product.rating}</label>
     
-    {!props.existsInCart ? <button onClick={addToCart}>Add to Cart</button> 
-    : <button onClick={removeFromCart}>Remove from cart</button>}
+    {!props.existsInCart ? <button onClick={() =>  props.updateCart("add",props.product)}>Add to Cart</button> 
+    :<button onClick={() => props.updateCart("delete",props.product)}>Remove from cart</button>}
     </div>
 
 </div>
