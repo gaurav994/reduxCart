@@ -55,6 +55,15 @@
     text-decoration: none;
     cursor: alias;
 }
+.gotToHomeLink {
+    margin-left: 20vw !important;
+    padding: 0.2vw;
+    /* float: right; */
+    font-weight: 700;
+    border: solid 2px darkslategray;
+    border-radius: 8px;
+    color: black !important;
+}
 
 .cartCount {
     padding: 0.2vw;
@@ -65,3 +74,4 @@
     color: black !important;
     margin-left: 40vw !important;
 }
+

@@ -86,10 +86,16 @@ const ProductListing = (props) => {
                     ))}
                 </select>
                 </> : 
-               <label> My Cart </label>
-                }               
-                <Link to="/cart"><label className={styles.cartCount}>Items in cart : {cartList.ItemCount}</label></Link></div>
-            <div className={styles.productsListContainer}>
+                <>   
+                <label> My Cart </label>
+                <Link to="/" className={styles.gotToHomeLink}><label >Go to home</label></Link>
+                </>
+                }
+               <Link to="/cart" ><label className={styles.cartCount}>Items in cart : {cartList.ItemCount}</label></Link>
+               </div>
+               
+                              
+                <div className={styles.productsListContainer}>
                 {!products.products.length > 0 ? <h1>Loading Products</h1> : products.products.map((i) => (
 
                     <ProductCard key={i.id} product={i} quantity={returnQuantity(i.id)} updateCart={updateCart} />
